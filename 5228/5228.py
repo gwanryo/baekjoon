@@ -1,0 +1,2 @@
+def c(n,b):q=n//b;return (c(q,b)if q else'')+'0123456789abcdefghijklmnopqrst'[n%b]
+for _ in [0]*int(input()):n,k=map(int,input().split());r=c(n,k);print(f"Base-{k} representation of {n} is {r}; {['does not contain','contains'][len(set(r))==k]} all digits.")
