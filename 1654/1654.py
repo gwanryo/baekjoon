@@ -1,16 +1,14 @@
-def c(l,p):
-    return sum([x//p for x in l])
-def b(a,t):
-    s,e=0,max(a) - 1
-    while s<=e:
-        m=(s+e)//2
-        q=c(a,m)
-        if q>t:
-            s=m+1
-        elif q<t:
-            e=m-1
-        elif q==t:
-            s=m+1
-    return e if c(l,e)==t else s
+import sys
+input = lambda: sys.stdin.readline().rstrip()
 k,n=map(int,input().split());l=[int(input()) for _ in range(k)]
-print(b(l,n))
+s,e=1,max(l)
+a=0
+while s<=e:
+    m=(s+e)//2
+    q=sum([x//m for x in l])
+    if q>=n:
+        s=m+1
+        a=m
+    elif q<n:
+        e=m-1
+print(a)
